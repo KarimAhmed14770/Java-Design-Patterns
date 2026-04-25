@@ -1,4 +1,8 @@
 import CreationalPatterns.Builder.UserExample.*;
+import CreationalPatterns.Factory.FactoryMethod.Example.JsonMessageCreator;
+import CreationalPatterns.Factory.FactoryMethod.Example.Message;
+import CreationalPatterns.Factory.FactoryMethod.Example.MessageCreator;
+import CreationalPatterns.Factory.FactoryMethod.Example.TextMessageCreator;
 import CreationalPatterns.Factory.SimpleFactory.Example.BlogPost;
 import CreationalPatterns.Factory.SimpleFactory.Example.NewsPost;
 import CreationalPatterns.Factory.SimpleFactory.Example.Post;
@@ -18,6 +22,9 @@ public class Main {//in the main class i write test for each design pattern
         Post post= PostFactory.createPost("blog");
         System.out.println(post instanceof BlogPost);
 
+        /*Factory method test*/
+        printMessage(new TextMessageCreator());
+        printMessage(new JsonMessageCreator());
 
     }
 
@@ -47,4 +54,9 @@ public class Main {//in the main class i write test for each design pattern
     }
 
 
+    /*Factory method test*/
+    private static void printMessage(MessageCreator creator){
+        Message message=creator.getMessage();
+        System.out.println(message);
+    }
 }
