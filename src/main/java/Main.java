@@ -1,4 +1,8 @@
 import CreationalPatterns.Builder.UserExample.*;
+import CreationalPatterns.Factory.SimpleFactory.Example.BlogPost;
+import CreationalPatterns.Factory.SimpleFactory.Example.NewsPost;
+import CreationalPatterns.Factory.SimpleFactory.Example.Post;
+import CreationalPatterns.Factory.SimpleFactory.Example.PostFactory;
 
 import java.time.LocalDate;
 
@@ -9,6 +13,10 @@ public class Main {//in the main class i write test for each design pattern
         UserDtoBuilder builder=new UserWebDtoBuilder();
         UserDto dto=directorBuild(builder,user);
         System.out.println(dto);
+
+        /*Simple factory test*/
+        Post post= PostFactory.createPost("blog");
+        System.out.println(post instanceof BlogPost);
 
 
     }
