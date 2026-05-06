@@ -7,6 +7,9 @@ import CreationalPatterns.Factory.SimpleFactory.Example.BlogPost;
 import CreationalPatterns.Factory.SimpleFactory.Example.NewsPost;
 import CreationalPatterns.Factory.SimpleFactory.Example.Post;
 import CreationalPatterns.Factory.SimpleFactory.Example.PostFactory;
+import CreationalPatterns.Singleton.Eager.EagerSingleton;
+import CreationalPatterns.Singleton.Lazy.LazySingletonDoubleCheckedLock;
+import CreationalPatterns.Singleton.Lazy.LazySingletonIHODM;
 
 import java.time.LocalDate;
 
@@ -25,6 +28,21 @@ public class Main {//in the main class i write test for each design pattern
         /*Factory method test*/
         printMessage(new TextMessageCreator());
         printMessage(new JsonMessageCreator());
+
+        /*Eager Singleton test*/
+        EagerSingleton eagerSingleton=EagerSingleton.getInstance();
+        EagerSingleton eagerSingleton1=EagerSingleton.getInstance();
+        System.out.println(eagerSingleton1==eagerSingleton);
+
+        /*Lazy Singleton test*/
+        LazySingletonDoubleCheckedLock lazySingletonDoubleCheckedLock=LazySingletonDoubleCheckedLock.getInstance();
+        LazySingletonDoubleCheckedLock lazySingletonDoubleCheckedLock1=LazySingletonDoubleCheckedLock.getInstance();
+        System.out.println(lazySingletonDoubleCheckedLock==lazySingletonDoubleCheckedLock1);
+
+        /*Lazy singleton IHOM test*/
+        LazySingletonIHODM singletonIHODM;
+        singletonIHODM= LazySingletonIHODM.getInstance();
+        singletonIHODM=LazySingletonIHODM.getInstance();
 
     }
 
